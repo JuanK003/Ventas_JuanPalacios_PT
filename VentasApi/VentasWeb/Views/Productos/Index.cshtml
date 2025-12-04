@@ -1,0 +1,18 @@
+﻿@model List<ProductoViewModel>
+@{
+    ViewData["Title"] = "Productos";
+}
+<h2>Productos</h2>
+<table class="table">
+    <thead><tr><th>Nombre</th><th>Precio</th><th>Stock</th><th></th></tr></thead>
+    <tbody>
+    @foreach(var p in Model) {
+        <tr>
+            <td>@p.Nombre</td>
+            <td>@p.Precio.ToString("C")</td>
+            <td>@p.Stock</td>
+            <td><a class="btn btn-sm btn-primary" href="@Url.Action("Crear", "Ventas", new { productoId = p.Id })">Agregar</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
